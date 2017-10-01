@@ -12,14 +12,17 @@ pipeline {
     }
     stage('Build') {
       steps {
-        bat '''
-          mvn clean install
-        '''
+        dir(path: 'oauth') {
+          bat 'mvn clean install'
+        }
+        
       }
       post {
         success {
-          junit 'target/surefire-reports/**/*.xml' 
+          junit 'target/surefire-reports/**/*.xml'
+          
         }
+        
       }
     }
   }
