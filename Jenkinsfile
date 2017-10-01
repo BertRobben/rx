@@ -10,6 +10,7 @@ pipeline {
       steps {
         tool 'Maven 3.5.0'
         tool 'JDK 8u144'
+        sh 'mvn clean install'
       }
     }
   }
