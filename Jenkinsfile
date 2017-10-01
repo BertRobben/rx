@@ -8,7 +8,7 @@ pipeline {
     stage('First') {
       steps {
         echo 'Hello from the blue ocean!'
-        bat(scriptt: '''
+        bat(script: '''
           path
           set
         ''')
