@@ -12,8 +12,14 @@ pipeline {
     }
     stage('Build') {
       steps {
-        bat(script: 'mvn clean install', returnStatus: true, returnStdout: true)
-        bat(script: 'dir', returnStdout: true)
+        bat '''
+          mvn clean install
+        '''
+      }
+      post {
+        success {
+          junit 'target/surefire-reports/**/*.xml' 
+        }
       }
     }
   }
