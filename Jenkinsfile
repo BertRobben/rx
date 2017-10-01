@@ -8,8 +8,10 @@ pipeline {
     stage('First') {
       steps {
         echo 'Hello from the blue ocean!'
-        path
-        set
+        bat(scriptt: '''
+          path
+          set
+        ''')
       }
     }
     stage('Build') {
