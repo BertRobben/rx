@@ -16,6 +16,11 @@ pipeline {
           bat 'mvn clean install'
         }
         
+        dir(path: 'oauth2.test') {
+          bat 'mvn clean install'
+          junit(allowEmptyResults: true, testResults: 'target/surefire-reports/**/*.xml')
+        }
+        
       }
       post {
         success {
